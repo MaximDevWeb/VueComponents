@@ -1,0 +1,40 @@
+.r-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.r-icon_big {
+  width: 24px;
+  height: 24px;
+}
+
+.r-icon_small {
+  width: 14px;
+  height: 14px;
+}
+
+.r-icon_rotate {
+  animation: r_rotate 1s ease-in-out infinite;
+}
+
+.r-icon_flick {
+  animation: r_flick 0.6s ease-in-out infinite;
+}
+
+@keyframes r_rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes r_flick {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
