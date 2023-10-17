@@ -1,0 +1,213 @@
+@use '@/assets/styles/variable';
+
+.r-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.r-button_primary {
+  background-color: variable.$primary_500;
+  border-color: variable.$primary_500;
+  color: white;
+
+  &:hover,
+  &:active {
+    background-color: variable.$primary_600;
+    border-color: variable.$primary_600;
+  }
+
+  &:focus {
+    background-color: variable.$primary_500;
+    border-color: variable.$primary_500;
+    outline: 3px solid variable.$primary_50;
+  }
+}
+
+.r-button_primary-light {
+  background-color: variable.$primary_25;
+  border-color: variable.$primary_25;
+  color: variable.$primary_500;
+
+  &:hover,
+  &:active {
+    background-color: variable.$primary_50;
+    border-color: variable.$primary_50;
+    color: variable.$primary_500;
+  }
+
+  &:focus {
+    background-color: variable.$primary_25;
+    border-color: variable.$primary_25;
+    outline: 3px solid variable.$primary_50;
+  }
+}
+
+.r-button_secondary {
+  background-color: transparent;
+  border-color: variable.$primary_400;
+  color: variable.$primary_500;
+
+  &:hover,
+  &:active {
+    background-color: variable.$primary_25;
+    border-color: variable.$primary_400;
+    color: variable.$primary_500;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: variable.$primary_400;
+    outline: 3px solid variable.$primary_50;
+  }
+}
+
+.r-button_secondary-gray {
+  background-color: transparent;
+  border-color: variable.$slate_200;
+  color: variable.$slate_600;
+
+  &:hover,
+  &:active {
+    background-color: variable.$slate_50;
+    border-color: variable.$slate_200;
+    color: variable.$slate_600;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: variable.$slate_200;
+    outline: 3px solid variable.$slate_50;
+  }
+}
+
+.r-button_tertiary {
+  background-color: transparent;
+  border-color: transparent;
+  color: variable.$slate_600;
+
+  &:hover,
+  &:active {
+    background-color: variable.$primary_25;
+    border-color: variable.$primary_25;
+    color: variable.$primary_500;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    color: variable.$primary_500;
+  }
+}
+
+.r-button_danger {
+  background-color: variable.$error_600;
+  border-color: variable.$error_600;
+  color: white;
+
+  &:hover,
+  &:active {
+    background-color: variable.$error_700;
+    border-color: variable.$error_700;
+  }
+
+  &:focus {
+    background-color: variable.$error_600;
+    border-color: variable.$error_600;
+    outline: 3px solid variable.$error_50;
+  }
+}
+
+.r-button_danger-light {
+  background-color: variable.$error_25;
+  border-color: variable.$error_25;
+  color: variable.$error_600;
+
+  &:hover,
+  &:active {
+    background-color: variable.$error_50;
+    border-color: variable.$error_50;
+  }
+
+  &:focus {
+    background-color: variable.$error_25;
+    border-color: variable.$error_25;
+    outline: 3px solid variable.$error_50;
+  }
+}
+
+.r-button_danger-grey {
+  background-color: transparent;
+  border-color: variable.$error_100;
+  color: variable.$error_600;
+
+  &:hover,
+  &:active {
+    background-color: variable.$error_25;
+    border-color: variable.$error_100;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: variable.$error_100;
+    outline: 3px solid variable.$error_50;
+  }
+}
+
+.r-button_danger-white {
+  background-color: transparent;
+  border-color: transparent;
+  color: variable.$error_600;
+
+  &:hover,
+  &:active {
+    background-color: variable.$error_25;
+    border-color: transparent;
+  }
+
+  &:focus {
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+  }
+}
+
+.r-button_big {
+  font-size: 16px;
+  padding: 10px 16px;
+
+  .r-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.r-button_small {
+  font-size: 12px;
+  padding: 6px 12px;
+
+  .r-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.r-button_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.r-button_load {
+  opacity: 0.8;
+  pointer-events: none;
+}
