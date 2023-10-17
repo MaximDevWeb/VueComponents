@@ -57,7 +57,7 @@ export const WithIcon: Story = {
     setup() {
       return { args }
     },
-    template: '<RButton v-bind="args"><r-icon type="user-add" size="small" />Add User</RButton>'
+    template: '<RButton v-bind="args"><r-icon type="user-add" />Add User</RButton>'
   }),
   args: {
     type: 'primary-light',
@@ -74,7 +74,7 @@ export const Icon: Story = {
     setup() {
       return { args }
     },
-    template: '<RButton v-bind="args"><r-icon type="user-remove" size="small" /></RButton>'
+    template: '<RButton v-bind="args"><r-icon type="user-remove" /></RButton>'
   }),
   args: {
     type: 'danger-grey',

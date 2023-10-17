@@ -41,7 +41,7 @@ const loadClass = computed<string>(() => (props.load ? 'r-button_load' : ''))
   <button class="r-button" :class="[typeClass, sizeClass, disableClass, loadClass]" :type="target">
     <slot v-if="!load" />
     <template v-else>
-      <r-icon type="spinner" animate="rotate" size="small" />
+      <r-icon type="spinner" animate="rotate" />
     </template>
   </button>
 </template>
