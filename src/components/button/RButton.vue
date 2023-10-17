@@ -4,7 +4,6 @@ import type { PropType } from 'vue'
 import { computed } from 'vue'
 import RIcon from '@/components/icon/RIcon.vue'
 import type { RButtonSize, RButtonTarget, RButtonType } from '@/components/button/RButtonTypes'
-import { RIconAnimate, RIconSize, RIconType } from '@/components/icon/RIconTypes'
 
 const props = defineProps({
   target: {
@@ -42,7 +41,7 @@ const loadClass = computed<string>(() => (props.load ? 'r-button_load' : ''))
   <button class="r-button" :class="[typeClass, sizeClass, disableClass, loadClass]" :type="target">
     <slot v-if="!load" />
     <template v-else>
-      <r-icon :type="RIconType.SPINNER" :animate="RIconAnimate.ROTATE" :size="RIconSize.SMALL" />
+      <r-icon type="spinner" animate="rotate" size="small" />
     </template>
   </button>
 </template>

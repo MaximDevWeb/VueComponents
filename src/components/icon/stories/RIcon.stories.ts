@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import RIcon from '@/components/icon/RIcon.vue'
-import { RIconAnimate, RIconSize, RIconType } from '@/components/icon/RIconTypes'
+import { RIconAnimateArr, RIconSizeArr, RIconTypeArr } from '@/components/icon/RIconTypes'
 
 const meta: Meta<typeof RIcon> = {
   title: 'UI Element/Icon',
@@ -10,17 +10,17 @@ const meta: Meta<typeof RIcon> = {
     type: {
       control: { type: 'select' },
       description: 'Тип иконки.',
-      options: RIconType
+      options: RIconTypeArr
     },
     size: {
       control: { type: 'radio' },
       description: 'Размер иконки.',
-      options: RIconSize
+      options: RIconSizeArr
     },
     animate: {
       control: { type: 'radio' },
       description: 'Анимация иконки',
-      options: RIconAnimate
+      options: RIconAnimateArr
     }
   }
 }
@@ -37,8 +37,8 @@ export const Basic: Story = {
     template: '<RIcon v-bind="args"></RIcon>'
   }),
   args: {
-    type: RIconType.APPS,
-    size: RIconSize.DEFAULT,
-    animate: RIconAnimate.NONE
+    type: 'apps',
+    size: 'default',
+    animate: 'none'
   }
 }
