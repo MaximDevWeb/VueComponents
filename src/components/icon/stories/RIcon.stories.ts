@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-
 import RIcon from '@/components/icon/RIcon.vue'
 import { RIconAnimateArr, RIconSizeArr, RIconTypeArr } from '@/components/icon/RIconTypes'
+import '@/assets/styles/app.scss'
 
 const meta: Meta<typeof RIcon> = {
   title: 'UI Element/Icon',

@@ -1,0 +1,54 @@
+@use '@/assets/styles/variable';
+
+.r-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  input {
+    position: fixed;
+    top: -1000px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  input:checked ~ .r-checkbox__field {
+    border-color: variable.$primary_500;
+    background-color: variable.$primary_500;
+
+    img {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .r-checkbox__field {
+      border: 1px solid variable.$primary_100;
+      box-shadow: 0 0 0 2px variable.$primary_50;
+    }
+  }
+}
+
+.r-checkbox__field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  border: 1px solid variable.$slate_300;
+  border-radius: 4px;
+  background-color: variable.$slate_25;
+  transition: all 0.3s;
+
+  img {
+    opacity: 0;
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.r-checkbox_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}

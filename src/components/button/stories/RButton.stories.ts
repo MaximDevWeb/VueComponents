@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RButton from '@/components/button/RButton.vue'
 import { RButtonSizeArr, RButtonTargetArr, RButtonTypeArr } from '@/components/button/RButtonTypes'
-import RIcon from '@/App.vue'
+import RIcon from '@/components/icon/RIcon.vue'
+import '@/assets/styles/app.scss'
 
 const meta: Meta<typeof RButton> = {
   title: 'UI Element/Button',
@@ -40,7 +41,7 @@ export const Basic: Story = {
     setup() {
       return { args }
     },
-    template: '<RButton v-bind="args">Send Message</RButton>'
+    template: '<r-button v-bind="args">Send Message</r-button>'
   }),
   args: {
     type: 'primary',
@@ -57,7 +58,7 @@ export const WithIcon: Story = {
     setup() {
       return { args }
     },
-    template: '<RButton v-bind="args"><r-icon type="user-add" />Add User</RButton>'
+    template: '<r-button v-bind="args"><r-icon type="user-add" />Add User</r-button>'
   }),
   args: {
     type: 'primary-light',
@@ -74,7 +75,7 @@ export const Icon: Story = {
     setup() {
       return { args }
     },
-    template: '<RButton v-bind="args"><r-icon type="user-remove" /></RButton>'
+    template: '<r-button v-bind="args"><r-icon type="user-remove" /></r-button>'
   }),
   args: {
     type: 'danger-grey',
