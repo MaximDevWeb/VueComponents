@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import RButton from '@/components/button/RButton.vue'
 import { RButtonSizeArr, RButtonTargetArr, RButtonTypeArr } from '@/components/button/RButtonTypes'
 import RIcon from '@/App.vue'
+import '@/assets/styles/app.scss'
 
 const meta: Meta<typeof RButton> = {
   title: 'UI Element/Button',
