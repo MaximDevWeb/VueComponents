@@ -5,17 +5,19 @@ import { computed } from 'vue'
 
 const props = defineProps({
   value: {
-    type: [String, Number]
+    type: [String, Number],
+    default: ''
   },
   disable: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   modelValue: {
     type: [Array, Boolean]
   }
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 
 /**
  * Обрабатываем различные варианты значения
@@ -36,7 +38,7 @@ const changeHandler = (event: Event) => {
     value = target.checked
   }
 
-  emit('update:modelValue', value)
+  emits('update:modelValue', value)
 }
 
 /**

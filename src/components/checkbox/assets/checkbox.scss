@@ -16,6 +16,10 @@
   input:checked ~ .r-checkbox__field {
     border-color: variable.$primary_500;
     background-color: variable.$primary_500;
+
+    img {
+      opacity: 1;
+    }
   }
 
   &:hover {
@@ -38,6 +42,7 @@
   transition: all 0.3s;
 
   img {
+    opacity: 0;
     width: 12px;
     height: 12px;
   }
