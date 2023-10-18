@@ -9,8 +9,7 @@ const meta: Meta<typeof RCheckbox> = {
   argTypes: {
     value: {
       control: false,
-      description: 'Значение (используется для выборки нескольких данных)',
-      controls: ''
+      description: 'Значение (используется для выборки нескольких данных)'
     },
     disable: {
       control: { type: 'boolean' },

@@ -32,10 +32,15 @@ const changeHandler = (value: string | number | boolean) => {
  * Вычисляем отмечен элемент или нет
  */
 const isChecked = computed(() => props.value === props.modelValue)
+
+/**
+ * Вычисляем значения классов
+ */
+const disableClass = computed<string>(() => (props.disable ? 'r-checkbox_disable' : ''))
 </script>
 
 <template>
-  <label class="r-radio">
+  <label class="r-radio" :class="[disableClass]">
     <input type="radio" :checked="isChecked" :value="value" @change="changeHandler(value)" />
 
     <span class="r-radio__field">
