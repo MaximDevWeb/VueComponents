@@ -35,7 +35,7 @@
   &:focus {
     background-color: variable.$primary_500;
     border-color: variable.$primary_500;
-    outline: 3px solid variable.$primary_50;
+    box-shadow: 0 0 0 3px variable.$primary_50;
   }
 }
 
@@ -54,7 +54,7 @@
   &:focus {
     background-color: variable.$primary_25;
     border-color: variable.$primary_25;
-    outline: 3px solid variable.$primary_50;
+    box-shadow: 0 0 0 3px variable.$primary_50;
   }
 }
 
@@ -73,7 +73,7 @@
   &:focus {
     background-color: transparent;
     border-color: variable.$primary_400;
-    outline: 3px solid variable.$primary_50;
+    box-shadow: 0 0 0 3px variable.$primary_50;
   }
 }
 
@@ -92,7 +92,7 @@
   &:focus {
     background-color: transparent;
     border-color: variable.$slate_200;
-    outline: 3px solid variable.$slate_50;
+    box-shadow: 0 0 0 3px variable.$slate_50;
   }
 }
 
@@ -130,7 +130,7 @@
   &:focus {
     background-color: variable.$error_600;
     border-color: variable.$error_600;
-    outline: 3px solid variable.$error_50;
+    box-shadow: 0 0 0 3px variable.$error_50;
   }
 }
 
@@ -148,7 +148,7 @@
   &:focus {
     background-color: variable.$error_25;
     border-color: variable.$error_25;
-    outline: 3px solid variable.$error_50;
+    box-shadow: 0 0 0 3px variable.$error_50;
   }
 }
 
@@ -166,7 +166,7 @@
   &:focus {
     background-color: transparent;
     border-color: variable.$error_100;
-    outline: 3px solid variable.$error_50;
+    box-shadow: 0 0 0 3px variable.$error_50;
   }
 }
 
