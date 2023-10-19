@@ -35,6 +35,11 @@
   }
 }
 
+.r-select_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .r-select__placeholder {
   color: variable.$slate_300;
 }

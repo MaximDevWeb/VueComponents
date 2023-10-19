@@ -15,6 +15,10 @@ const props = defineProps({
     default: [],
     required: true
   },
+  disable: {
+    type: Boolean,
+    default: false
+  },
   modelValue: {
     type: String,
     default: ''
@@ -53,6 +57,11 @@ const activeHideHandler = () => {
 const value = computed(() => {
   return props.options?.find((item) => item.value === props.modelValue)?.label
 })
+
+/**
+ * Вычисляем значения классов
+ */
+const disableClass = computed<string>(() => (props.disable ? 'r-select_disable' : ''))
 </script>
 
 <template>
