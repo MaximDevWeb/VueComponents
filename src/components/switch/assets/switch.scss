@@ -1,0 +1,88 @@
+@use '@/assets/styles/variable';
+
+.r-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  input {
+    position: fixed;
+    top: -1000px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  input:checked ~ .r-switch__field {
+    background-color: variable.$primary_500;
+
+    &:hover {
+      box-shadow: 0 0 0 2px variable.$primary_50;
+    }
+
+    .r-switch__slider {
+      transform: translateX(16px);
+    }
+  }
+}
+
+.r-switch_dark {
+  input:checked ~ .r-switch__field {
+    background-color: variable.$slate_800;
+
+    &:hover {
+      box-shadow: 0 0 0 2px variable.$slate_50;
+    }
+  }
+}
+
+.r-switch__field {
+  position: relative;
+  display: block;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: variable.$slate_200;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 0 2px variable.$slate_50;
+  }
+}
+
+.r-switch__slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: block;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(variable.$slate_800, 0.1);
+  transition: all 0.3s;
+}
+
+.r-switch_small {
+  .r-switch__field {
+    width: 28px;
+    height: 16px;
+    border-radius: 8px;
+  }
+
+  .r-switch__slider {
+    height: 12px;
+    width: 12px;
+  }
+
+  input:checked ~ .r-switch__field {
+    .r-switch__slider {
+      transform: translateX(12px);
+    }
+  }
+}
+
+.r-switch_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
