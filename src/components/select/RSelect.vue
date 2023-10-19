@@ -67,7 +67,7 @@ const disableClass = computed<string>(() => (props.disable ? 'r-select_disable' 
 <template>
   <div
     class="r-select"
-    :class="{ 'r-select_active': active }"
+    :class="[{ 'r-select_active': active }, disableClass]"
     @click="activeToggleHandler"
     v-click-outside="activeHideHandler"
   >
