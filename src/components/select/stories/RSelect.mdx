@@ -1,0 +1,14 @@
+{ /* RSelect.mdx */ }
+
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as RSelectStories from "./RSelect.stories";
+
+<Meta of={RSelectStories} />
+
+# Select
+
+Для правильного использования данного компонента **необходима реализация директивы** `click-outside`. Данная директива нужна для обработки кликов вне компонента.
+
+<Canvas of={RSelectStories.Basic} />
+
+<Controls />
