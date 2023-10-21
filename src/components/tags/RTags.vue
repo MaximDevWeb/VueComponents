@@ -15,7 +15,7 @@ const props = defineProps({
   modelValue: {
     type: Array,
     require: true,
-    default: []
+    default: () => []
   }
 })
 
