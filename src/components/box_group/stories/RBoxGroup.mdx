@@ -1,0 +1,14 @@
+{ /* RBoxGroup.mdx */ }
+
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as RBoxGroupStories from "./RBoxGroup.stories";
+
+<Meta of={RBoxGroupStories} />
+
+# Box Group
+
+Для правильного использования компонента **при наличии иконок**, в свойство `icon`, списка элементов, свойством `component` передается компонент иконки, свойством `args` передаются параметры компонента.
+
+<Canvas of={RBoxGroupStories.Basic} />
+
+<Controls />

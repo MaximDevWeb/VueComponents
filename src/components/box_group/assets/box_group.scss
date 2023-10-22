@@ -173,7 +173,9 @@
   background-color: variable.$slate_50;
   transition: all 0.3s;
 
-  .r-icon {
+  .r-icon,
+  svg,
+  img {
     height: 16px;
     width: 16px;
   }
