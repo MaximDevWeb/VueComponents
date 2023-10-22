@@ -18,6 +18,11 @@
   }
 }
 
+.r-box-group_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .r-box-group__grid_1 {
   label {
     width: 100%;

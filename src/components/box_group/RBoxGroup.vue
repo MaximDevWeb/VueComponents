@@ -28,6 +28,10 @@ const props = defineProps({
     type: Number as PropType<RBoxGroupGrid>,
     default: 3
   },
+  disable: {
+    type: Boolean,
+    default: false
+  },
   modelValue: {
     type: [Array, String, Number] as PropType<RBoxGroupValue>,
     default: ''
@@ -53,10 +57,11 @@ watch(value, () => {
  */
 const gridClass = computed<string>(() => 'r-box-group__grid_' + props.grid)
 const positionClass = computed<string>(() => 'r-box-group__item_' + props.position)
+const disableClass = computed<string>(() => (props.disable ? 'r-box-group_disable' : ''))
 </script>
 
 <template>
-  <div class="r-box-group" :class="[gridClass]">
+  <div class="r-box-group" :class="[gridClass, disableClass]">
     <template v-for="item in list" :key="item.value">
       <label>
         <input :type="type" :value="item.value" v-model="value" />
