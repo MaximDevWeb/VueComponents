@@ -1,0 +1,25 @@
+@use '@/assets/styles/variable';
+
+.r-code__list {
+  display: flex;
+  gap: 16px;
+}
+
+.r-code__input {
+  text-align: center;
+  font-size: 26px;
+  padding: 10px;
+  width: 30px;
+  border: 1px solid variable.$slate_300;
+  border-radius: 6px;
+  outline: none;
+
+  &:focus {
+    border: 1px solid variable.$primary_500;
+  }
+}
+
+.r-code_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
