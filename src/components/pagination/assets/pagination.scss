@@ -1,0 +1,65 @@
+@use '@/assets/styles/variable';
+
+.r-pagination,
+.r-pagination__steps {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.r-pagination_round {
+  .r-pagination__icon {
+    border: 1px solid variable.$slate_300;
+    border-radius: 50%;
+  }
+}
+
+.r-pagination__icon,
+.r-pagination__step,
+.r-pagination__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 10px;
+  transition: all 0.2s;
+}
+
+.r-pagination__icon {
+  color: variable.$slate_500;
+  width: 30px;
+  padding: 0;
+
+  svg {
+    height: 18px;
+    width: 18px;
+  }
+
+  &:hover {
+    color: variable.$slate_700;
+    transform: scale(1.1);
+    border-color: variable.$slate_500;
+  }
+}
+
+.r-pagination__icon_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.r-pagination__step {
+  color: variable.$slate_700;
+  width: 30px;
+  padding: 0;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: variable.$slate_100;
+  }
+}
+
+.r-pagination__step_active {
+  pointer-events: none;
+  background-color: variable.$slate_700;
+  color: white;
+}
