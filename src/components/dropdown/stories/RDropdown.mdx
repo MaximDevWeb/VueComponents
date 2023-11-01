@@ -1,0 +1,30 @@
+{/* RDropdown.mdx */}
+
+import { Canvas, Meta, Controls } from '@storybook/blocks'
+import * as RDropdownStories from './RDropdown.stories'
+
+<Meta of={RDropdownStories} />
+
+# Dropdown
+
+Для правильного использования данного компонента **необходима реализация директивы** `click-outside`. Данная директива нужна для обработки кликов вне компонента.
+
+## Используемые слоты
+
+`<template #target>` - в слот помещается элемент который связан с выпадающим списком.
+
+`<template #list>` - в слот помещаются элементы списка.
+
+## Компоненты списка
+
+`<r-dropdown-block>` - компонент обертка отдельных блоков списка, может содержать параметр **id** для указания ид компоненту-маркеру
+
+`<r-dropdown-header>` - заголовок для отдельных блоков списка
+
+`<r-dropdown-item>` - основной элемент списка
+
+`<r-dropdown-marker target="default">` - компонент-маркер, исползуется для перехода к дочернему элементу, имеет обязательный параметр **target** для указания ид отдельного блока блока
+
+<Canvas of={RDropdownStories.WithChildren} />
+
+<Controls />
