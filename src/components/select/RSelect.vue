@@ -12,7 +12,7 @@ const props = defineProps({
   },
   options: {
     type: Array as PropType<RSelectOption[]>,
-    default: [],
+    default: () => [],
     required: true
   },
   disable: {
@@ -88,6 +88,7 @@ const disableClass = computed<string>(() => (props.disable ? 'r-select_disable' 
         v-for="option in options"
         class="r-select__item"
         :class="{ 'r-select__item_selected': option.value === modelValue }"
+        :key="option.value"
         @click="changeHandler(option.value)"
       >
         <div>
