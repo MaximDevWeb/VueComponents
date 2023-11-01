@@ -8,7 +8,6 @@ export default {
     }
     el.eventOnClick = (event: any) => {
       const dragging = el.getAttribute('data-dragging')
-      console.log(document.elementsFromPoint(event.clientX, event.clientY))
       if (!document.elementsFromPoint(event.clientX, event.clientY).includes(el) && !dragging) {
         binding.value(event)
       }
