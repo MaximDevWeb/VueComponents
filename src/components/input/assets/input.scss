@@ -1,0 +1,113 @@
+@use '@/assets/styles/variable';
+
+.r-input__wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.r-input,
+.r-password,
+.r-textarea,
+.r-number {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 35px;
+  width: 100%;
+  padding: 0 10px 0 10px;
+  border: 1px solid variable.$slate_300;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus {
+    border-color: variable.$slate_500;
+  }
+
+  &:disabled {
+    background-color: white;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+.r-password {
+  padding-right: 40px;
+}
+
+.r-textarea {
+  padding: 10px;
+  height: auto;
+}
+
+.r-number {
+  width: 70px;
+  border-radius: 0;
+  text-align: center;
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.r-number__button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  border: 1px solid variable.$slate_300;
+  border-radius: 6px;
+  color: variable.$slate_800;
+  background-color: variable.$slate_50;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: variable.$slate_100;
+  }
+
+  &:first-child {
+    border-radius: 6px 0 0 6px;
+    border-right: none;
+  }
+
+  &:last-child {
+    border-radius: 0 6px 6px 0;
+    border-left: none;
+  }
+}
+
+.r-number__button_inactive {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.r-number_disable {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.r-password__icon {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  padding-left: 8px;
+  cursor: pointer;
+  color: variable.$slate_500;
+  border-left: 1px solid variable.$slate_200;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
