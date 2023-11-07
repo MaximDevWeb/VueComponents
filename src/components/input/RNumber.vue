@@ -5,10 +5,6 @@ import minusIcon from './assets/minus.svg'
 import plusIcon from './assets/plus.svg'
 
 const props = defineProps({
-  placeholder: {
-    type: String,
-    default: ''
-  },
   min: {
     type: Number,
     default: 0
