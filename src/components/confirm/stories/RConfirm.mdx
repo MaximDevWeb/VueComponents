@@ -1,0 +1,14 @@
+{ /* RConfirm.mdx */ }
+
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as RConfirmStories from "./RConfirm.stories";
+
+<Meta of={RConfirmStories} />
+
+# Confirm
+
+**Внимание!** компонент использует `RButton`. Для правильной работы компонента целевой объект нужно обернуть в данный компонент и передать **обязательный параметр** `event`. В данный параметр нужно поместить событие которое ранее было назначено на целевой компонент.
+
+<Canvas of={RConfirmStories.Basic} />
+
+<Controls />
