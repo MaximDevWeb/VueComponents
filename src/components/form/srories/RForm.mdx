@@ -1,0 +1,36 @@
+{ /* RForm.mdx */ }
+
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as RFormStories from "./RForm.stories";
+
+<Meta of={RFormStories} />
+
+# Form
+
+Параметр **data** должен быть объектом, со структурой `ключ => значение`.
+
+#### Пример
+
+```ts
+const data = {
+  login: '',
+  password: '',
+  password_repeat: ''
+}
+```
+
+Параметр **validation** должен быть массивом объектов `ValidationData`. Объект состоит из свойства `field` в котором содержится **название поля** и `rules` с массивом правил валидации.
+
+#### Пример
+
+```ts
+const validation: ValidationData[] = [
+  { field: 'login', rules: ['required'] },
+  { field: 'password', rules: ['required', 'min:8'] },
+  { field: 'password_repeat', rules: ['required', 'min:8'] }
+]
+```
+
+<Canvas of={RFormStories.Basic} />
+
+<Controls />

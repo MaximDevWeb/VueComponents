@@ -1,0 +1,46 @@
+@use '@/assets/styles/variable';
+.r-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.r-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.r-form__label {
+  position: relative;
+  font-size: 14px;
+  min-height: 14px;
+  font-weight: 500;
+}
+
+.r-form__message {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  padding: 2px 0 0 5px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.r-form__info {
+  font-size: 12px;
+  color: variable.$slate_500;
+}
+
+.r-form__error {
+  .r-form__message {
+    color: variable.$error_700;
+  }
+
+  input,
+  input:focus,
+  input:hover {
+    border-color: variable.$error_700;
+  }
+}

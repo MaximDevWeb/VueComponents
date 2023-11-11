@@ -1,0 +1,124 @@
+@use '@/assets/styles/variable';
+
+.r-tooltip {
+  display: inline-block;
+  position: relative;
+  text-decoration: underline dotted variable.$slate_500;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration-color: variable.$primary_500;
+  }
+
+  &:hover {
+    .r-tooltip__wrapper {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.r-tooltip_dark {
+  .r-tooltip__wrapper {
+    background-color: variable.$slate_800;
+    color: variable.$slate_200;
+  }
+
+  .r-tooltip__indicator {
+    background-color: variable.$slate_800;
+  }
+
+  .r-tooltip__title {
+    color: white;
+  }
+}
+
+.r-tooltip_bottom {
+  .r-tooltip__wrapper {
+    top: calc(100% + 10px);
+    bottom: auto;
+  }
+
+  .r-tooltip__indicator {
+    bottom: calc(100% - 5px);
+    top: auto;
+  }
+}
+
+.r-tooltip_bottom {
+  .r-tooltip__wrapper {
+    top: calc(100% + 10px);
+    bottom: auto;
+  }
+
+  .r-tooltip__indicator {
+    bottom: calc(100% - 5px);
+    top: auto;
+  }
+}
+
+.r-tooltip_left {
+  .r-tooltip__wrapper {
+    bottom: 50%;
+    transform: translateY(50%);
+    right: calc(100% + 10px);
+  }
+
+  .r-tooltip__indicator {
+    bottom: 50%;
+    top: auto;
+    transform: translateY(50%) rotate(45deg);
+    left: calc(100% - 5px);
+  }
+}
+
+.r-tooltip_right {
+  .r-tooltip__wrapper {
+    bottom: 50%;
+    transform: translateY(50%);
+    left: calc(100% + 10px);
+  }
+
+  .r-tooltip__indicator {
+    bottom: 50%;
+    top: auto;
+    transform: translateY(50%) rotate(45deg);
+    right: calc(100% - 5px);
+    left: auto;
+  }
+}
+
+.r-tooltip__wrapper {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  min-width: 100px;
+  max-width: 80%;
+  padding: 10px;
+  font-size: 12px;
+  color: variable.$slate_500;
+  background-color: variable.$slate_100;
+  border-radius: 6px;
+  cursor: default;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s 200ms;
+  z-index: 20;
+}
+
+.r-tooltip__indicator {
+  position: absolute;
+  transform: rotate(45deg);
+  top: calc(100% - 5px);
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  background-color: variable.$slate_100;
+  border-radius: 1px;
+}
+
+.r-tooltip__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: variable.$slate_700;
+  margin-bottom: 4px;
+}

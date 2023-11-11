@@ -1,0 +1,46 @@
+@use '@/assets/styles/variable';
+
+.r-confirm__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(variable.$slate_200, 0.8);
+  z-index: 120;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.r-confirm__wrapper_visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.r-confirm {
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.r-confirm__header {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.r-confirm__subheader {
+  margin-bottom: 20px;
+}
+
+.r-confirm__buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}

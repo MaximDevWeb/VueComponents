@@ -1,0 +1,108 @@
+@use '@/assets/styles/variable';
+
+.r-alert {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  padding: 16px;
+  border-radius: 6px;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.r-alert_default {
+  background-color: variable.$slate_100;
+  color: variable.$slate_800;
+  border: 1px solid variable.$slate_300;
+}
+
+.r-alert_default.r-alert_side-bar {
+  border-left: 4px solid variable.$slate_300;
+}
+
+.r-alert_error {
+  background-color: variable.$error_50;
+  color: variable.$error_600;
+  border: 1px solid variable.$error_200;
+}
+
+.r-alert_error.r-alert_side-bar {
+  border-left: 4px solid variable.$error_200;
+}
+
+.r-alert_info {
+  background-color: variable.$primary_50;
+  color: variable.$primary_600;
+  border: 1px solid variable.$primary_200;
+}
+
+.r-alert_info.r-alert_side-bar {
+  border-left: 4px solid variable.$primary_200;
+}
+
+.r-alert_success {
+  background-color: variable.$success_50;
+  color: variable.$success_700;
+  border: 1px solid variable.$success_200;
+}
+
+.r-alert_success.r-alert_side-bar {
+  border-left: 4px solid variable.$success_200;
+}
+
+.r-alert_warning {
+  background-color: variable.$warning_50;
+  color: variable.$warning_700;
+  border: 1px solid variable.$warning_300;
+}
+
+.r-alert_warning.r-alert_side-bar {
+  border-left: 4px solid variable.$warning_300;
+}
+
+.r-alert_no-border {
+  border: none;
+}
+.r-alert__prefix,
+.r-alert__close {
+  flex: 1;
+}
+
+.r-alert__icon {
+  height: 20px;
+  width: 20px;
+  transform: translateY(-2px);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.r-alert__title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.r-alert__content {
+  color: variable.$slate_600;
+}
+
+.r-alert__close-icon {
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+  transform: translateY(-2px);
+  transition: all 0.3s;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.2) translateY(-2px);
+  }
+}
