@@ -1,0 +1,71 @@
+@use '@/assets/styles/variable';
+
+.r-table {
+  width: 100%;
+
+  .r-checkbox {
+    margin-right: 10px;
+  }
+}
+
+.r-table__wrapper {
+  overflow: auto;
+}
+
+.r-table__tr {
+  &:last-child {
+    .r-table__td {
+      border-bottom: none;
+    }
+  }
+
+  &:nth-child(even) {
+    .r-table__td {
+      background-color: variable.$slate_50;
+    }
+  }
+}
+
+.r-table__flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.r-table__th {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: variable.$slate_25;
+  color: variable.$slate_500;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.r-table__th_sortable {
+  cursor: pointer;
+  user-select: none;
+
+  span {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.r-table__td {
+  padding: 15px 10px;
+  border-bottom: 1px solid variable.$slate_100;
+  vertical-align: middle;
+}
+
+.r-table__pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
