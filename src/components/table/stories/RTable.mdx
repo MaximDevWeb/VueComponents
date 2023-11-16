@@ -1,0 +1,55 @@
+{ /* RTale.mdx */ }
+
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import * as RTableStories from "./RTable.stories";
+
+<Meta of={RTableStories} />
+
+# Table
+
+Компонент таблицы принимает два обязательных параметра `data` и `columns`
+
+#### Параметр data
+
+Массив объектов с произвольной структурой и наличием обязательного свойства `id`
+
+```js
+[
+  { id: 1, login: 'user1', age: 20, role: 'admin', created_at: '2023-11-14'},
+  { id: 2, login: 'user2', age: 34, role: 'manager', created_at: '2023-11-23'},
+  { id: 3, login: 'user3', age: 43, role: 'client', created_at: '2023-11-17'}
+]
+```
+
+#### Параметр columns
+
+Массив объектов с настройками колонок, пример:
+
+```js
+[
+  { field: 'login', label: 'Логин', component: ColUserInfo, selectable: true },
+  { field: 'age', label: 'Возраст', sortable: true },
+  { field: 'role', label: 'Роль', component: ColUserRole, sortable: true },
+  { field: 'created_at', label: 'Добавлен', transform: dateTransform }
+]
+```
+
+Возможные свойства
+
+`field` - **обязательное** поле которое будет использоваться для получения соответствующего свойства из объекта массива data
+
+`label` - заголовок для колонки в таблице
+
+`width` - ширина колонки ('120 px')
+
+`sortable` - возможность сортировки (boolean)
+
+`selectable` - возможность выбора строк (boolean)
+
+`component` - компонент для кастомного отображения ячейки, должен содержать параметр item, содержащий объект из массива data
+
+`transform` - функция для обработки значения поля, в параметре получает значение поля
+
+<Canvas of={RTableStories.Basic} />
+
+<Controls />
