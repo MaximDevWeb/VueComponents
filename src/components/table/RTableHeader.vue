@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { RTableColumn, RTableSort } from '@/components/table/RTableTypes'
+import type { RTableColumn } from '@/components/table/RTableTypes'
 import { StringFormat } from '@/libs/string'
 import sortNotIcon from './assets/sort-not.svg'
 import sortUpIcon from './assets/sort-up.svg'
 import sortDownIcon from './assets/sort-down.svg'
-import { inject, ref } from 'vue'
 import RCheckbox from '@/components/checkbox/RCheckbox.vue'
+import { useSort } from '@/components/table/model/Sort'
+import { computed } from 'vue'
+import { RTableDirection } from '@/components/table/RTableTypes'
+import { useSelect } from '@/components/table/model/Select'
 
 defineProps({
   columns: {
@@ -15,38 +18,26 @@ defineProps({
   }
 })
 
-const emits = defineEmits(['sorting', 'checked'])
-
-const sortIcon = ref<string>(sortNotIcon)
-const sortData = ref<RTableSort>({ field: '', direction: 'not' })
-
-const { checkAll }: any = inject('store')
+const { sort, field, change } = useSort()
+const { selectAll } = useSelect()
 
 /**
- * Обработчик события сортировки
+ * Взаимосвязь направления сортировки и иконки
+ */
+const sortIconObject: any = {
+  [RTableDirection.NOT]: sortNotIcon,
+  [RTableDirection.UP]: sortUpIcon,
+  [RTableDirection.DOWN]: sortDownIcon
+}
+
+const sortIcon = computed(() => sortIconObject[sort.value])
+
+/**
+ * Обработка события смены направления сортировки
  * @param column
  */
 const sortHandler = (column: RTableColumn) => {
-  if (!column.sortable) return
-
-  let direction = 'not'
-
-  switch (sortData.value.direction) {
-    case 'not':
-      direction = 'up'
-      sortIcon.value = sortUpIcon
-      break
-    case 'up':
-      direction = 'down'
-      sortIcon.value = sortDownIcon
-      break
-    default:
-      sortIcon.value = sortNotIcon
-      direction = 'not'
-  }
-
-  sortData.value = { field: column.field, direction } as RTableSort
-  emits('sorting', sortData)
+  if (column.sortable) change(column.field)
 }
 </script>
 
@@ -61,13 +52,13 @@ const sortHandler = (column: RTableColumn) => {
     >
       <div class="r-table__flex">
         <template v-if="column.selectable">
-          <r-checkbox v-model="checkAll" />
+          <r-checkbox v-model="selectAll" />
         </template>
 
         {{ StringFormat.capitalize(column.label || column.field) }}
 
         <template v-if="column.sortable">
-          <template v-if="sortData.field === column.field">
+          <template v-if="column.field === field">
             <span v-html="sortIcon"></span>
           </template>
 

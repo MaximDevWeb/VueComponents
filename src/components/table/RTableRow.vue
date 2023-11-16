@@ -2,9 +2,9 @@
 import type { PropType } from 'vue'
 import type { RTableColumn } from '@/components/table/RTableTypes'
 import RCheckbox from '@/components/checkbox/RCheckbox.vue'
-import { computed } from 'vue'
+import { useSelect } from '@/components/table/model/Select'
 
-const props = defineProps({
+defineProps({
   item: {
     type: Object,
     required: true
@@ -12,27 +12,10 @@ const props = defineProps({
   columns: {
     type: Array as PropType<RTableColumn[]>,
     required: true
-  },
-  modelValue: {
-    type: Array,
-    required: true
   }
 })
 
-const emits = defineEmits(['update:modelValue', 'change'])
-
-/**
- * Обрабатываем изменение выбора поля
- */
-const value = computed({
-  get() {
-    return props.modelValue
-  },
-  set(value) {
-    emits('update:modelValue', value)
-    emits('change')
-  }
-})
+const { selected } = useSelect()
 
 /**
  * Функция трансформации значение
@@ -54,7 +37,7 @@ const transform = (column: RTableColumn, value: string) => {
       <td class="r-table__td" :style="{ width: column.width || 'auto' }">
         <div class="r-table__flex">
           <template v-if="column.selectable">
-            <r-checkbox :value="item.id" v-model="value" />
+            <r-checkbox :value="item.id" v-model="selected" />
           </template>
 
           <template v-if="column.component">

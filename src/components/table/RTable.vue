@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import './assets/table.scss'
-import { computed, type PropType, provide, type Ref, ref, watch } from 'vue'
+import { type PropType, watch, watchEffect } from 'vue'
 import RPagination from '@/components/pagination/RPagination.vue'
-import type { RTableColumn, RTableSort } from '@/components/table/RTableTypes'
+import type { RTableColumn, RTableItem } from '@/components/table/RTableTypes'
 import RTableRow from '@/components/table/RTableRow.vue'
 import RTableHeader from '@/components/table/RTableHeader.vue'
+import { useRows } from '@/components/table/model/Rows'
+import { useSelect } from '@/components/table/model/Select'
 
 const props = defineProps({
   data: {
-    type: Array,
+    type: Array as PropType<RTableItem[]>,
     default: () => []
   },
   perPage: {
@@ -21,70 +23,32 @@ const props = defineProps({
   }
 })
 
-const emits = defineEmits(['selected'])
+const emits = defineEmits(['select'])
 
-const page = ref<number>(1)
-const fullRows = ref(props.data)
-const checkedRows = ref([])
-const checkAll = ref<boolean>(false)
-
-provide('store', { checkAll })
+const { all, page, length, rows } = useRows()
+const { selected, getSelected } = useSelect()
 
 /**
- * Получаем текущий срез строк
+ * Обновляем значения при их изменении
  */
-const rows = computed(() => {
-  return fullRows.value?.slice((page.value - 1) * props.perPage, page.value * props.perPage)
+watchEffect(() => {
+  all.value = props.data
+  length.value = props.perPage
 })
 
 /**
- * Обрабатываем событие сортировки элементов
- * @param sort
+ * Следим за обновлением выбранных элементов
+ * и генерируем событие
  */
-const sortingHandler = (sort: Ref<RTableSort>) => {
-  const field = sort.value.field
-
-  switch (sort.value.direction) {
-    case 'up':
-      fullRows.value.sort((a, b) => {
-        return a[field] < b[field] ? -1 : a[field] > b[field] ? 1 : 0
-      })
-      break
-    case 'down':
-      fullRows.value.sort((a, b) => {
-        return a[field] > b[field] ? -1 : a[field] < b[field] ? 1 : 0
-      })
-      break
-    default:
-      fullRows.value.sort((a, b) => {
-        return a['id'] - b['id']
-      })
-  }
-}
-
-/**
- * Наблюдаем за изменением выбранных элементов
- */
-watch(checkedRows, () => {
-  emits(
-    'selected',
-    checkedRows.value.map((item) => Number(item))
-  )
-})
-
-watch(checkAll, () => {
-  if (checkAll.value) {
-    checkedRows.value = rows.value?.reduce((acc: number[], item) => [...acc, item.id], [])
-  } else if (!checkAll.value && checkedRows.value.length === rows.value?.length) {
-    checkedRows.value = []
-  }
+watch(selected, () => {
+  emits('select', getSelected())
 })
 </script>
 
 <template>
   <table class="r-table">
     <thead>
-      <r-table-header :columns="columns" @sorting="sortingHandler" />
+      <r-table-header :columns="columns" />
     </thead>
 
     <tbody>
@@ -92,13 +56,12 @@ watch(checkAll, () => {
         v-for="(item, index) in rows"
         :item="item"
         :columns="columns"
-        v-model="checkedRows"
         :key="item.id || index"
       />
     </tbody>
   </table>
 
   <div class="r-table__pagination">
-    <r-pagination :count="data.length" :per-page="perPage" v-model="page" />
+    <r-pagination :count="data.length" :per-page="length" v-model="page" />
   </div>
 </template>

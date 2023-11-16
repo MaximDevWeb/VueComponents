@@ -10,7 +10,13 @@ export type RTableColumn = {
   transform?: Function
 }
 
-export type RTableSort = {
-  field: string
-  direction: 'up' | 'down' | 'not'
+export enum RTableDirection {
+  UP,
+  DOWN,
+  NOT
+}
+
+export type RTableItem = {
+  id: number
+  [field: string]: any
 }
